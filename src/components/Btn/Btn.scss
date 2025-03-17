@@ -1,0 +1,21 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  color: $color-default-white;
+  background-color: $color-palatinate-blue;
+  border: 1px solid $color-transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color $transition-300, border-color $transition-300;
+
+  @include hover-focus {
+    outline: none;
+    background-color: $color-default-black;
+    border-color: $color-default-black;
+  }
+}

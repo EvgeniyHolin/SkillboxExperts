@@ -1,0 +1,29 @@
+---
+import CustomImage from '../CustomImage/CustomImage.astro';
+
+interface Props {
+  number: string;
+  text: string;
+  mod: string;
+  images?: {[key: string]: string};
+  altText?: string;
+}
+
+const { number, text, mod, images, altText } = Astro.props
+---
+
+<div class:list={["info-card", mod && mod]}>
+  <span class="info-card__number" set:html={number}/>
+  <p class="info-card__text" set:html={text}/>
+  {
+    images && 
+    <CustomImage
+      image={{
+        desktop: images.img,
+        desktop2x: images.img2x,
+      }}
+      altText={altText}
+      className='info-card__img'
+    />
+  }
+</div>

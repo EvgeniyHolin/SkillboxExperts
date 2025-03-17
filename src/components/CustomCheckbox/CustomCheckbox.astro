@@ -1,0 +1,22 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  className?: string;
+  classCheckbox?: string;
+  idCheckbox: string;
+  nameCheckbox: string;
+  classLabel?: string;
+  textLabel?: string;
+};
+
+const { className, classCheckbox, idCheckbox, nameCheckbox, classLabel, textLabel } = Astro.props;
+---
+
+<div class:list={["custom-checkbox", className]}>
+  <input class:list={["custom-checkbox__field", classCheckbox]} type="checkbox" id={idCheckbox} name={nameCheckbox}>
+  <label class:list={["custom-checkbox__label", classLabel]} for={idCheckbox}>
+    <span class="custom-checkbox__text">{textLabel}</span>
+    <Icon name='icon-check-arrow' class='custom-checkbox__check' />
+  </label>
+</div>

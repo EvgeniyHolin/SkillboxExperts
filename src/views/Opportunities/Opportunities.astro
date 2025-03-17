@@ -1,0 +1,30 @@
+---
+import OpportunitiesCard from "@/components/OpportunitiesCard/OpportunitiesCard.astro";
+import { opportunities } from "@/data/opportunities";
+import { Icon } from "astro-icon/components";
+---
+
+<section class="opportunities">
+        <h2 class="opportunities__title">Создаем возможности</h2>
+        <div class="opportunities__swiper">
+            <div class="opportunities__swiper-wrapper swiper-wrapper">
+                {opportunities.map(card => (
+                    <OpportunitiesCard
+                        title={card.title}
+                        imagePath={card.imagePath}
+                        imagePath2x={card.imagePath2x}
+                        imagePathTablet={card.imagePathTablet}
+                        imagePathTablet2x={card.imagePathTablet2x}
+                    />
+                ))}
+            </div>
+        </div>
+        <div class="opportunities__swiper-nav">
+            <button class="opportunities__swiper-btn opportunities__swiper-btn--prev" type="button" aria-label="Предыдущий слайд">
+                <Icon class="opportunities__swiper-icon" name="icon-prev"/>
+            </button>
+            <button class="opportunities__swiper-btn opportunities__swiper-btn--next" type="button" aria-label="Следующий слайд">
+                <Icon class="opportunities__swiper-icon" name="icon-next"/>
+            </button>
+        </div>
+</section>

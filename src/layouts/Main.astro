@@ -1,0 +1,21 @@
+---
+import Layout from '@layouts/root';
+import Header from '@components/Header/Header';
+import Footer from '@components/Footer/Footer';
+
+interface Props {
+  title: string;
+  headerMod?: string;
+}
+
+const { title } = Astro.props;
+---
+
+<Layout title={title}>
+  <Header />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+  <slot name="modals" />
+</Layout>

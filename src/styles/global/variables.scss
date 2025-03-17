@@ -1,0 +1,44 @@
+// Default
+
+$color-default-black: #000;
+$color-default-white: #fff;
+$color-transparent: rgb(255 255 255 / 0%);
+
+// Project palette
+// для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
+$color-white-smoke: #F5F5F5;
+$color-gainsboro: #E0E0E0;
+$color-cultured: #F5F5F5;
+$color-whisper: #EBEBEB;
+$color-dim-gray: #666666;
+$color-gainsboro: #E0E0E0;
+$color-pink-swan: #B8B8B8;
+$color-palatinate-blue: #3D3BFF;
+$color-shuttle-grey: #656A72;
+$color-alice-blue: #F5F7FA;
+$color-nobel: #949494;
+
+// Высота без учета bar в android, ios
+// Для устранения бага в андроид @see https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+$height-100vh: calc(100 * var(--vh, 1vh));
+$fz-default: 10px;
+
+// Fonts
+$ff-arial: 'Arial', sans-serif;
+$ff-graphik: 'Graphik', 'Arial', sans-serif;
+
+// Viewports
+$vp-1440: 1440px;
+$vp-1280: 1280px;
+$vp-1024: 1024px;
+$vp-768: 768px;
+$vp-390: 390px;
+$vp-320: 320px;
+
+// Animations
+$transition-default: ease;
+$transition-ease-in: ease-in;
+
+$transition-300: 0.3s $transition-default;
+$transition-300-ease-in: 0.3s $transition-ease-in;
+$transition-200-ease-in: 0.2s $transition-ease-in;

@@ -1,0 +1,42 @@
+---
+import Container from "@components/Container/Container";
+import Images from "@components/Images/Images";
+import AdvantageCard from "@components/AdvantageCard/AdvantageCard";
+
+import { advantageCards } from "@/data/advantageCards.js";
+---
+
+<section class="advantages">
+    <Container>
+        <Images
+            className="advantages__bg-img"
+            imagePath="/src/images/advantages-bg/curve-1.png"
+            altText=""
+        />
+        <Images
+            className="advantages__bg-img advantages__bg-img--down"
+            imagePath="/src/images/advantages-bg/curve-2.png"
+            altText=""
+        />
+        <ul class="advantages__list">
+            <li class="advantages__item">
+                <div class="advantages__title-block">
+                    <h2 class="advantages__title">
+                        Почему эксперты выбирают Skillbox?
+                    </h2>
+                    <p class="advantages__text">
+                        Мы&nbsp;объединяем экспертов, делимся знаниями и
+                        перенимаем опыт, чтобы развиваться вместе с индустрией.
+                    </p>
+                </div>
+            </li>
+            {
+                advantageCards.map((card) => (
+                    <li class="advantages__item">
+                        <AdvantageCard title={card.title} text={card.text} />
+                    </li>
+                ))
+            }
+        </ul>
+    </Container>
+</section>

@@ -1,0 +1,43 @@
+---
+import Container from "@/components/Container/Container.astro";
+import ExpertCard from "@/components/ExpertCard/ExpertCard.astro";
+import { Icon } from "astro-icon/components";
+import experts from "@/data/experts.js";
+---
+
+<section class="experts">
+  <Container>
+    <div class="experts__wrapper">
+      <h2 class="experts__title">Наши эксперты востребованы прямо&nbsp;сейчас</h2>
+      <div class="experts__buttons-block">
+        <button class="experts__button-prev" type="button" aria-label="Предыдущий слайд">
+          <Icon class="experts__prev-icon" name="icon-prev"/>
+        </button>
+        <button class="experts__button-next" type="button" aria-label="Следующий слайд">
+          <Icon class="experts__next-icon" name="icon-next"/>
+        </button>
+      </div>
+    </div>
+    <div class="experts__swiper">
+      <div class="experts__swiper-wrapper swiper-wrapper">
+        {experts.map(expert => (
+          <div class="swiper-slide experts__swiper-slide">
+            <ExpertCard 
+              imagePath={expert.imagePath} 
+              imagePath2x={expert.imagePath2x}
+              imagePathTablet={expert.imagePathTablet} 
+              imagePathTablet2x={expert.imagePathTablet2x} 
+              imagePathMobile={expert.imagePathMobile} 
+              imagePathMobile2x={expert.imagePathMobile2x} 
+              imageCompany={expert.imageCompany} 
+              name={expert.name} 
+              tags={expert.tags} 
+              info={expert.info}
+              socials={expert.socials}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </Container>
+</section>

@@ -1,0 +1,30 @@
+---
+import Container from "@components/Container/Container";
+
+import { communityData } from "@/data/community";
+import InfoCard from "../../components/InfoCard/InfoCard.astro";
+---
+<section class="community">
+  <Container>
+    <div class="community__top">
+      <h2 class="community__title" set:html={communityData.title} />
+      <p class="community__label" set:html={communityData.description} />
+    </div>
+      <div class="community__wrapper">
+        <span class="community__text" set:html={communityData.text} />
+        <ul class="community__list">
+          {
+            communityData.cardList.map((item) => (
+              <li class="community__item">
+                {
+                  item.images
+                    ? <InfoCard number={item.number} text={item.text} mod={item.mod} images={item.images} altText="Изображение полупрозрачных геометрических фигур"/>
+                    : <InfoCard number={item.number} text={item.text} mod={item.mod} />
+                }
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+  </Container>
+</section>

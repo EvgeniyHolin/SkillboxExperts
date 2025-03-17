@@ -1,0 +1,28 @@
+.swiper-button-prev,
+.swiper-button-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.2rem;
+  height: 5.2rem;
+  color: #ffffff;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(10rem);
+
+  &::after {
+    flex-shrink: 0;
+    width: 2.4rem;
+    height: 2.4rem;
+    content: "";
+    background-color: currentColor;
+    mask-image: url("/src/images/svg/arrow-right.svg");
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+  }
+}
+
+.swiper-button-prev::after {
+  transform: scale(-1, 1);
+}

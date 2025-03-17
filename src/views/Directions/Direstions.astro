@@ -1,0 +1,83 @@
+---
+import Container from "@/components/Container/Container.astro";
+import CustomImage from "@/components/CustomImage/CustomImage.astro";
+import Direction from "@/components/Direction/Direction.astro";
+import marquees from "@/data/marqiee.js"
+---
+
+<section class="directions">
+  <Container>
+    <h2 class="directions__title">Направления</h2>
+    <span class="directions__subtitle">Более 700 материалов в&nbsp;направлениях</span>
+    <ul class="directions__list">
+      {marquees.map(marquee => (
+        <li class="directions__row">
+          <div class="directions__row-wrapper">
+            <ul class="directions__list-direction">
+              {marquee.text.map(item => (
+                <li class="directions__item-direction">
+                  <Direction
+                    src={marquee.icons[marquee.text.indexOf(item)]}
+                    text={item}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="directions__row-wrapper">
+            <ul class="directions__list-direction">
+              {marquee.text.map(item => (
+                <li class="directions__item-direction">
+                  <Direction
+                    src={marquee.icons[marquee.text.indexOf(item)]}
+                    text={item}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    <div class="directions__bottom">
+      <span class="directions__text" data-parallax-mouse data-movement="18" data-duration="1">Лендинг создан выпускниками Skillbox</span>
+      <div class="directions__image-wrapper" data-parallax-mouse data-movement="25" data-direction-x="2" data-direction-y="2">
+        <CustomImage
+          image={{
+            desktop: "/src/images/directions/vase.png",
+            desktop2x: "/src/images/directions/vase@2x.png",
+          }}
+          mediaMobile={767}
+          mediaTablet={1023}
+          altText='Изображение стеклянной вазы'
+          className="directions__picture directions__picture--vase"
+        />
+      </div>
+      <div class="directions__image-wrapper" data-parallax-mouse data-movement="25" data-direction-x="-1" data-direction-y="1">
+        <CustomImage
+          image={{
+            desktop: "/src/images/directions/flower.png",
+            desktop2x: "/src/images/directions/flower@2x.png",
+          }}
+          mediaMobile={767}
+          mediaTablet={1023}
+          altText='Изображение цветка'
+          className="directions__picture directions__picture--flower"
+        />
+      </div>
+      <div class="directions__image-wrapper" data-parallax-mouse data-movement="25" data-direction-x="1" data-direction-y="-1">
+        <CustomImage
+          image={{
+            desktop: "/src/images/directions/puddle.png",
+            desktop2x: "/src/images/directions/puddle@2x.png",
+          }}
+          mediaMobile={767}
+          mediaTablet={1023}
+          altText='Изображение лужи'
+          className="directions__picture directions__picture--puddle"
+        />
+      </div>
+    </div>
+  </Container>
+</section>

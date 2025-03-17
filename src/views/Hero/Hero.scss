@@ -1,0 +1,187 @@
+.hero {
+  background-color: $color-default-black;
+  min-height: 720px;
+  //min-height: calc(100vh - 30px);
+  border-radius: 32px;
+  margin: 15px 20px 120px;
+  overflow: hidden;
+  position: relative;
+  padding: 173px 0 371px;
+  $root: &;
+
+  @include vp-1279 {
+    padding: 122px 0 420px;
+  }
+
+  @include vp-1023 {
+    padding: 114px 0 306px;
+    margin: 25px 20px 70px;
+    min-height: 560px;
+  }
+
+  @include vp-767 {
+    padding: 138px 0 150px;
+    margin: 15px 10px 70px;
+    min-height: 690px;
+    border-radius: 16px;
+  }
+
+  @include vp-389 {
+    padding: 164px 0 98px;
+    min-height: 548px;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 120px;
+    line-height: 120px;
+    text-align: center;
+    margin: 0 0 20px;
+    color: $color-default-white;
+    letter-spacing: -0.01em;
+
+    @include vp-1279 {
+      font-size: 104px;
+      line-height: 104px;
+      margin: 0 0 32px;
+    }
+
+    @include vp-1023 {
+      font-size: 80px;
+      line-height: 80px;
+      margin: 0 0 32px;
+    }
+
+    @include vp-767 {
+      font-size: 36px;
+      line-height: 38px;
+    }
+  }
+
+  &__slogan {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 36px;
+    color: $color-default-white;
+    text-align: center;
+    margin: 0;
+
+    @include vp-1023 {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    @include vp-767 {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+
+  &__circle-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    top: 1075px;
+    left: 50%;
+    border: 2px solid $color-dim-gray;
+    transform: translate(-50%, -50%) rotate(0deg);
+
+    animation: rotation 100s linear infinite;
+
+    @include renderCircleList($itemCount: 11, $circleSize: 1304px, $itemSize: 84px);
+
+    @include vp-1279 {
+      top: 840px;
+      @include renderCircleList($itemCount: 11, $circleSize: 936px, $itemSize: 84px);
+    }
+
+    @include vp-1023 {
+      top: 632px;
+      @include renderCircleList($itemCount: 11, $circleSize: 660px, $itemSize: 61px);
+    }
+
+    @include vp-767 {
+      top: 719px;
+    }
+
+    @include vp-389 {
+      top: 598px;
+      @include renderCircleList($itemCount: 11, $circleSize: 498px, $itemSize: 46px);
+    }
+
+    &--internal {
+      top: 997px;
+
+      animation: reverseRotation 120s linear infinite;
+
+      @include renderCircleList($itemCount: 6, $circleSize: 870px, $itemSize: 84px);
+
+      @include vp-1279 {
+        top: 840px;
+        @include renderCircleList($itemCount: 6, $circleSize: 594px, $itemSize: 84px);
+      }
+
+      @include vp-1023 {
+        top: 627px;
+        @include renderCircleList($itemCount: 6, $circleSize: 415px, $itemSize: 61px);
+      }
+
+      @include vp-767 {
+        top: 722px;
+        @include renderCircleList($itemCount: 6, $circleSize: 390px, $itemSize: 61px);
+      }
+
+      @include vp-389 {
+        top: 603px;
+        @include renderCircleList($itemCount: 6, $circleSize: 299px, $itemSize: 46px);
+      }
+
+      #{$root}__circle-img {
+        animation: rotation 120s linear infinite;
+      }
+    }
+  }
+
+  &__circle-item {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+
+  &__circle-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+
+    animation: reverseRotation 100s linear infinite;
+  }
+
+  & .container {
+    @include vp-389 {
+      padding: 0;
+    }
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes reverseRotation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}

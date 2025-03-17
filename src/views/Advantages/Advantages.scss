@@ -1,0 +1,111 @@
+.advantages {
+    margin: 0 20px 120px;
+    padding: 120px 0;
+    position: relative;
+    background-color: $color-default-black;
+    border-radius: 32px;
+
+    @include vp-1023 {
+        padding: 109px 0;
+    }
+
+    @include vp-767 {
+        margin: 0 20px 70px;
+        padding: 70px 0;
+    }
+
+    @include vp-389 {
+        margin: 0 0 70px;
+        padding: 70px 0;
+    }
+
+    &__bg-img {
+        position: absolute;
+        z-index: 5;
+        top: 305px;
+        left: 48.9%;
+        transform: translateX(-50%);
+        pointer-events: none;
+
+        @media (max-width: 600px) {
+            display: none;
+        }
+
+        &--down {
+            top: auto;
+            bottom: 0;
+            left: 49.5%;
+        }
+    }
+
+    &__list {
+        list-style-type: none;
+        margin: 0 auto;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        max-width: 1020px;
+
+        @include vp-1023 {
+            max-width: 830px;
+        }
+
+        @include vp-767 {
+            max-width: 632px;
+        }
+    }
+
+    &__item {
+        &:nth-child(odd) {
+            margin: 0 auto 0 0;
+
+            @media (max-width: 600px) {
+                margin: 0 auto;
+            }
+        }
+
+        &:nth-child(even) {
+            margin: 0 0 0 auto;
+
+            @media (max-width: 600px) {
+                margin: 0 auto;
+            }
+        }
+    }
+
+    &__title-block {
+        max-width: 538px;
+
+        @include vp-767 {
+            max-width: unset;
+        }
+    }
+
+    &__title {
+        font-size: 52px;
+        font-weight: 500;
+        line-height: 54px;
+        letter-spacing: -0.02em;
+        margin: 0 0 16px;
+        color: $color-default-white;
+
+        @include vp-767 {
+            font-size: 32px;
+            line-height: 34px;
+            letter-spacing: unset;
+        }
+    }
+
+    &__text {
+        font-size: 18px;
+        line-height: 26px;
+        color: $color-default-white;
+        margin: 0;
+
+        @include vp-767 {
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+}

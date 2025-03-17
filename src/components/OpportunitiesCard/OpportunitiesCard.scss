@@ -1,0 +1,67 @@
+.opportunities-card {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-default-white;
+    border-radius: 32px;
+    padding: 40px 32px 15px;
+    width: 420px;
+    min-height: 542px;
+    position: relative;
+    user-select: none;
+    cursor: grab;
+
+    transition: transform $transition-300-ease-in;
+
+    &:active {
+        cursor: grabbing;
+    }
+
+    @include vp-1023 {
+        width: 310px;
+        min-height: 410px;
+        padding: 20px 20px 15px;
+    }
+
+    @include vp-767 {
+        width: 260px;
+        min-height: 360px;
+    }
+
+    &__text {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 28px;
+        text-align: center;
+        margin: 0 0 15px;
+
+        @include vp-1023 {
+            font-size: 20px;
+            line-height: 24px;
+        }
+
+        @include vp-767 {
+            font-size: 18px;
+            line-height: 22px;
+        }
+    }
+
+    & picture {
+        margin: auto 0 0;
+    }
+
+    &__img {
+        width: 100%;
+    }
+
+    &.swiper-slide {
+        transform: scale(0.84) translateZ(0);
+
+        @include vp-767 {
+            transform: scale(1) translateZ(0);
+        }
+    }
+
+    &.swiper-slide.swiper-slide-active {
+        transform: scale(1) translateZ(0);
+    }
+}

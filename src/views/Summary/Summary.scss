@@ -1,0 +1,28 @@
+.summary {
+  margin: 0 0 120px;
+
+  @include vp-1023 {
+    margin: 0 0 70px;
+  }
+
+  &__title {
+    @include visually-hidden;
+  }
+  
+	&__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    @include vp-1023 {
+      gap: 24px;
+    }
+
+    @include vp-767 {
+      grid-template-columns: 1fr;
+    }
+	}
+}

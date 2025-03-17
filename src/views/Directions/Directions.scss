@@ -1,0 +1,235 @@
+.directions {
+  margin: 0 0 68px;
+  $root: &;
+
+  @include vp-1023 {
+    margin: 0 0 56px;
+  }
+
+  @include vp-767 {
+    margin: 0 0 69px;
+  }
+
+  &__title {
+    @include visually-hidden
+  }
+
+  &__subtitle {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 40px;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 36px;
+
+    @include vp-767 {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    @media (max-width: 510px) {
+      margin: 0 0 24px;
+      text-align: center;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    position: relative;
+    margin: 0 0 120px;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+    list-style-type: none;
+
+    @include vp-1023 {
+      margin: 0 0 70px;
+    }
+  }
+
+  &__row {
+    display: flex;
+    white-space: nowrap;
+    width: max-content;
+
+    &:nth-child(even) {
+      transform: translateX(-50%);
+
+      #{$root}__list-direction {
+        animation-name: marquee-moving-reverse;
+      }
+    }
+  }
+
+  &__list-direction {
+    display: flex;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    width: max-content;
+    list-style-type: none;
+    animation-name: marquee-moving;
+    animation-duration: 50s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  &__item-direction {
+    flex-shrink: 0;
+
+    &:last-child {
+      display: flex;
+      margin: 0 32px 0 0;
+    }
+  }
+
+  &__bottom {
+    position: relative;
+    margin: 0 auto;
+    padding: 115px 0 0 0;
+    max-width: 645px;
+    min-height: 528px;
+
+    @include vp-1023 {
+      padding: 75px 0 0;
+      max-width: 374px;
+      min-height: 306px;
+    }
+
+    @include vp-767 {
+      padding: 57px 0 0;
+      max-width: 292px;
+      min-height: 239px;
+    }
+  }
+
+  &__text {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 528px;
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 60px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+
+    @include vp-1023 {
+      max-width: 357px;
+      font-size: 32px;
+      line-height: 34px;
+      letter-spacing: normal;
+    }
+
+    @include vp-767 {
+      font-size: 28px;
+      line-height: 30px;
+    }
+  }
+
+  &__image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  &__picture {
+    position: absolute;
+    overflow: visible;
+    transition: transform $transition-300;
+
+    &--vase {
+      top: 0;
+      left: 6%;
+      width: 242px;
+      height: 242px;
+      transform: rotate(-5deg);
+
+      @include vp-1023 {
+        top: 0;
+        left: 5%;
+        width: 140px;
+        height: 152px;
+      }
+
+      @include vp-767 {
+        top: 0;
+        left: 2%;
+        width: 109px;
+        height: 119px;
+      }
+    }
+
+    &--flower {
+      top: 52%;
+      left: 21%;
+      width: 87px;
+      height: 87px;
+
+      @include vp-1023 {
+        top: 53%;
+        left: 21%;
+        width: 50px;
+        height: 50px;
+      }
+
+      @include vp-767 {
+        top: 52%;
+        left: 18%;
+        width: 39px;
+        height: 39px;
+      }
+    }
+
+    &--puddle {
+      top: 15%;
+      left: 34%;
+      width: 446px;
+      height: 446px;
+
+      @include vp-1023 {
+        top: 16%;
+        left: 34%;
+        width: 254px;
+        height: 254px;
+      }
+
+      @include vp-767 {
+        top: 15%;
+        left: 32%;
+        width: 199px;
+        height: 199px;
+      }
+    }
+  }
+}
+
+@keyframes marquee-moving {
+  0% {
+    transform: translateZ(0) translateX(0);
+  }
+
+  100% {
+    transform: translateZ(0) translateX(-100%);
+  }
+}
+
+@keyframes marquee-moving-reverse {
+  0% {
+    transform: translateZ(0) translateX(0);
+  }
+
+  100% {
+    transform: translateZ(0) translateX(100%);
+  }
+}

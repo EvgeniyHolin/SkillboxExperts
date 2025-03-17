@@ -1,0 +1,51 @@
+.select-country {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 0 12px 0 18px;
+  background-color: $color-cultured;
+  border: 1px solid $color-gainsboro;
+  border-right: none;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transition: border-color $transition-300;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background-color: $color-pink-swan;
+    opacity: 0;
+    transition: opacity $transition-300;
+  }
+
+  @include hover-focus {
+    border-color: $color-pink-swan;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &__pict {
+    display: contents;
+  }
+
+  &__img {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+  }
+}

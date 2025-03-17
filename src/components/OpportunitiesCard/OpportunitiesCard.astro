@@ -1,0 +1,29 @@
+---
+import CustomImage from "../CustomImage/CustomImage.astro";
+
+interface Props {
+    title: string;
+    imagePath: string;
+    imagePath2x?: string;
+    imagePathTablet?: string;
+    imagePathTablet2x?: string;
+}
+
+const {title, imagePath, imagePath2x, imagePathTablet, imagePathTablet2x} = Astro.props;
+---
+
+<div class="opportunities-card swiper-slide">
+    <p class="opportunities-card__text">{title}</p>
+    <CustomImage
+            image={{
+                desktop: imagePath,
+                desktop2x: imagePath2x,
+                tablet: imagePathTablet,
+                tablet2x: imagePathTablet2x,
+            }}
+            mediaTablet={1023}
+            altText='Фоновое изображение'
+            className="opportunities-card__img"
+            ariaHidden={true}
+    />
+</div>

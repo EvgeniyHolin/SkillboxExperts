@@ -1,0 +1,22 @@
+---
+import Container from "@components/Container/Container";
+import { summaryData } from "@/data/summary";
+import InfoCard from "@/components/InfoCard/InfoCard.astro";
+---
+
+<section class="summary">
+  <Container>
+    <h2 class="summary__title" set:html={summaryData.title} />
+    <ul class="summary__list">
+      {
+        summaryData.cardList.map(card => (
+          <li class="summary__item">
+            {('images' in card) 
+              ? <InfoCard number={card.number} text={card.text} mod={card.mod} images={card.images} altText="Изображение водяного кольца" />
+              : <InfoCard number={card.number} text={card.text} mod={card.mod} />}
+          </li>
+        ))
+      }
+    </ul>
+  </Container>
+</section>

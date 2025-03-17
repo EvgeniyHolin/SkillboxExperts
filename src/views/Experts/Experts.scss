@@ -1,0 +1,100 @@
+.experts {
+  margin: 0 0 120px;
+
+  @include vp-1023 {
+    margin: 0 0 70px;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 40px;
+
+    @include vp-1023 {
+      gap: 56px;
+    }
+
+    @media (max-width: 670px) {
+      margin: 0 0 32px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    max-width: 70%;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 42px;
+
+    @include vp-1023 {
+      max-width: 80%;
+      font-size: 28px;
+      line-height: 30px;
+    }
+
+    @media (max-width: 670px) {
+      max-width: 100%;
+    }
+  }
+
+  &__buttons-block {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+  }
+
+  &__button-prev,
+  &__button-next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 100px;
+    background-color: $color-white-smoke;
+    border: none;
+    transition: background-color $transition-300, color $transition-300;
+
+    @include vp-1023 {
+      width: 40px;
+      height: 40px;
+    }
+
+    @media (max-width: 670px) {
+      display: none;
+    }
+
+    &:not([disabled]) {
+      cursor: pointer;
+      
+      @include hover-focus {
+        outline: none;
+        color: $color-default-white;
+        background-color: $color-default-black;
+      }
+    }
+  }
+
+  &__prev-icon,
+  &__next-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__swiper {
+    overflow: visible;
+
+    &-slide {
+      width: 868px;
+      height: auto;
+
+      @include vp-1023 {
+        width: 636px;
+      }
+
+      @media (max-width: 670px) {
+        width: 315px;
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+---
+import { Icon } from 'astro-icon/components';
+import CustomImage from "../CustomImage/CustomImage.astro";
+
+interface Socials {
+  icon: string;
+  link: string;
+}
+
+interface Props {
+  imagePath: string;
+  imagePath2x: string;
+  imagePathTablet:  string;
+  imagePathTablet2x:  string;
+  imagePathMobile: string;
+  imagePathMobile2x: string;
+  imageCompany: string;
+  name: string;
+  tags: Array<string>;
+  info: Array<string>;
+  socials: Socials[];
+}
+
+const {
+  imagePath,
+  imagePath2x,
+  imagePathTablet,
+  imagePathTablet2x,
+  imagePathMobile,
+  imagePathMobile2x,
+  imageCompany,
+  name,
+  tags,
+  info,
+  socials
+} = Astro.props;
+---
+
+
+<div class="expert-card">
+  <div class="expert-card__inner">
+    <CustomImage
+        image={{
+          desktop: imagePath,
+          desktop2x: imagePath2x,
+          tablet: imagePathTablet,
+          tablet2x: imagePathTablet2x,
+          mobile: imagePathMobile,
+          mobile2x: imagePathMobile2x,
+        }}
+        mediaMobile={767}
+        mediaTablet={1023}
+        altText='Фотография эксперта Skillbox'
+        className="expert-card__img"
+    />
+    <Icon name={imageCompany} class='expert-card__icon'/>
+  </div>
+  <div class="expert-card__wrapper">
+    <div class="expert-card__heading">
+      <h3 class="expert-card__title">{name}</h3>
+      <ul class="expert-card__tag-list">
+        {
+          tags.map(tag => (
+            <li class="expert-card__tag-item">
+              <span class="expert-card__tag">{tag}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <p class="expert-card__info">
+      {
+        info.map(paragraph => (
+          <span class="expert-card__paragraph" set:html={paragraph}/>
+        ))
+      }
+    </p>
+    {socials.length > 0 && (
+      <ul class="expert-card__socials">
+        {socials.map(social => (
+          <li class="expert-card__socials-item">
+            <a class="expert-card__socials-link" href={social.link} target="_blank" aria-label="Ссылка на канал эксперта">
+              <Icon class="expert-card__socials-icon" name={social.icon}></Icon> 
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</div>

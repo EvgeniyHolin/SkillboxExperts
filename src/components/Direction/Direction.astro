@@ -1,0 +1,25 @@
+---
+import CustomImage from "../CustomImage/CustomImage.astro";
+
+interface Props {
+  src: string;
+  text: string;
+}
+
+const { src, text } = Astro.props;
+---
+
+<div class="direction">
+  <span class="direction__text">{text}</span>
+  {src && 
+    <CustomImage
+      image={{
+        desktop: src,
+      }}
+      mediaMobile={767}
+      mediaTablet={1023}
+      altText='Значок'
+      className="direction__img"
+    />
+  }
+</div>

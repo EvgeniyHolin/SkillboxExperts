@@ -1,0 +1,71 @@
+---
+import Images from "../Images/Images.astro";
+import { Icon } from "astro-icon/components";
+import CustomImage from "../CustomImage/CustomImage.astro";
+
+interface Experts {
+    name: string;
+    imagePath: string;
+    imagePathTablet?: string;
+    imagePathMobile?: string;
+    imagePath2x?: string;
+    imagePathTablet2x?: string;
+    imagePathMobile2x?: string;
+    companyLogo: string;
+    profession: string;
+}
+
+interface Props {
+    profession: string;
+    info: Array<string>;
+    experts: Experts[];
+}
+
+const { profession, info, experts } = Astro.props;
+---
+
+<div class="expert-levels-card" data-tabs="element">
+    <div class="expert-levels-card__inner">
+        <h3 class="expert-levels-card__title">{profession}</h3>
+        <ul class="expert-levels-card__info-list">
+        {
+            info.map((item) => (
+            <li class="expert-levels-card__info-item">
+                <Icon class="expert-levels-card__icon" name='icon-check' aria-hidden="true"></Icon>
+                <span>{item}</span>
+            </li>
+            ))
+        }
+        </ul>
+    </div>
+    <div class="expert-levels-card__swiper">
+        <div class="expert-levels-card__bullets"></div>
+        <div class="expert-levels-card__swiper-wrapper swiper-wrapper">
+            {
+                experts.map((expert) => (
+                <div class="expert-levels-card__img-wrap swiper-slide">
+                    <CustomImage
+                            image={{
+                                desktop: expert.imagePath,
+                                desktop2x: expert.imagePath2x,
+                                tablet: expert.imagePathTablet,
+                                tablet2x: expert.imagePathTablet2x,
+                                mobile: expert.imagePathMobile,
+                                mobile2x: expert.imagePathMobile2x,
+                            }}
+                            mediaMobile={767}
+                            mediaTablet={1023}
+                            altText='Фотография эксперта'
+                            className="expert-levels-card__img"
+                    />
+                        <div class="expert-levels-card__desc">
+                            <p class="expert-levels-card__picture-title">{expert.name}</p>
+                            <p class="expert-levels-card__picture-text">{expert.profession}</p>
+                        </div>
+                        <Icon name={expert.companyLogo} class="expert-levels-card__company-logo"/>
+                </div>
+                ))
+            }
+        </div>
+    </div>
+</div>

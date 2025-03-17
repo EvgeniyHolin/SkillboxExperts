@@ -1,0 +1,56 @@
+---
+import Container from "@components/Container/Container";
+import CustomImage from "@/components/CustomImage/CustomImage.astro";
+import { heroData } from "@/data/hero";
+---
+
+<section class="hero">
+  <Container>
+    <h1 class="hero__title">Skillbox Experts</h1>
+    <p class="hero__slogan">Развиваем комьюнити вместе</p>
+    <ul class="hero__circle-list">
+      {
+        heroData.slice(0, 11).map((item) => (
+          <li class="hero__circle-item">
+            <CustomImage
+                image={{
+                  desktop: item.img,
+                  desktop2x: item.img2x,
+                  tablet: item.imgTablet,
+                  tablet2x: item.imgTablet2x,
+                  mobile: item.imgMobile,
+                  mobile2x: item.imgMobile2x,
+                }}
+                mediaMobile={389}
+                mediaTablet={1023}
+                altText='Фотография эксперта'
+                className='hero__circle-img'
+            />
+          </li>
+        ))
+      }
+    </ul>
+    <ul class="hero__circle-list hero__circle-list--internal">
+      {
+        heroData.slice(11).map((item) => (
+          <li class="hero__circle-item">
+            <CustomImage
+                image={{
+                  desktop: item.img,
+                  desktop2x: item.img2x,
+                  tablet: item.imgTablet,
+                  tablet2x: item.imgTablet2x,
+                  mobile: item.imgMobile,
+                  mobile2x: item.imgMobile2x,
+                }}
+                mediaMobile={389}
+                mediaTablet={1023}
+                altText='Фотография эксперта'
+                className='hero__circle-img'
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </Container>
+</section>

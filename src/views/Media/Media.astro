@@ -1,0 +1,88 @@
+---
+import Container from "@/components/Container/Container.astro";
+import { media } from "@/data/media.js";
+import MediaCard from "@/components/MediaCard/MediaCard.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<section class="media">
+    <Container>
+        <div class="media__wrapper">
+            <h2 class="media__title">
+                Эксперты Skillbox публикуются в&nbsp;медиа
+            </h2>
+            <span class="media__subtitle">
+                Блоги, соцсети, IT-медиа &laquo;Люди и&nbsp;код&raquo;
+            </span>
+            <div class="media__content" data-tabs="parent">
+                <div class="media__tabs" data-tabs="controls">
+                    {
+                        media.map((item) => (
+                            <button
+                                class="media__tab"
+                                type="button"
+                                data-tabs="control"
+                            >
+                                {item.title}
+                            </button>
+                        ))
+                    }
+                </div>
+                <div class="media__tabs-content" data-tabs="content">
+                    {
+                        media.map((item) => (
+                            <div class="media__tab-inner" data-tabs="element">
+                                <div class="media__swiper">
+                                    <div class="media__swiper-wrapper swiper-wrapper">
+                                        {item.cards.map((card) => (
+                                            <div class="media__swiper-slide swiper-slide">
+                                                <MediaCard
+                                                    cardImagePath={
+                                                        card.cardImagePath
+                                                    }
+                                                    cardImagePath2x={
+                                                        card.cardImagePath2x
+                                                    }
+                                                    label={card.label}
+                                                    link={card.link}
+                                                    linkText={card.linkText}
+                                                    title={card.title}
+                                                    expertImagePath={
+                                                        card.expertImagePath
+                                                    }
+                                                    expertName={card.expertName}
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div class="media__buttons-block">
+                                        <button
+                                            class="media__button-prev"
+                                            type="button"
+                                            aria-label="Предыдущий слайд"
+                                        >
+                                            <Icon
+                                                class="media__prev-icon"
+                                                name="icon-prev"
+                                            />
+                                        </button>
+                                        <button
+                                            class="media__button-next"
+                                            type="button"
+                                            aria-label="Следующий слайд"
+                                        >
+                                            <Icon
+                                                class="media__next-icon"
+                                                name="icon-next"
+                                            />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>

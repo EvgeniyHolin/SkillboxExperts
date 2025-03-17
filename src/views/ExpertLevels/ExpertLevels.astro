@@ -1,0 +1,32 @@
+---
+import Container from "@/components/Container/Container.astro";
+import { expertLevels } from "@/data/expertLevels.js";
+import ExpertLevelsCard from "@/components/ExpertLevelsCard/ExpertLevelsCard.astro";
+---
+
+<section class="expert-levels">
+    <Container>
+        <h2 class="expert-levels__title">Уровни экспертов</h2>
+        <p class="expert-levels__subtitle">Можно быть экспертом на&nbsp;одном или нескольких уровнях</p>
+        <div class="expert-levels__content" data-tabs="parent">
+            <div class="expert-levels__tabs" data-tabs="controls">
+                {
+                    expertLevels.map(i =>(
+                        <button class="expert-levels__tab" type="button" data-tabs="control" aria-label="Выбрать категорию">{i.title}</button>
+                    ))
+                }
+            </div>
+            <div class="expert-levels__tabs-content" data-tabs="content">
+            {
+                expertLevels.map(i =>(
+                    <ExpertLevelsCard
+                        profession={i.profession}
+                        info={i.info}
+                        experts={i.experts}
+                    />
+                ))
+            }
+            </div>
+        </div>
+    </Container>
+</section>

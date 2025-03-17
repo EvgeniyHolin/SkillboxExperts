@@ -1,0 +1,23 @@
+---
+import CustomInput from "../CustomInput/CustomInput.astro";
+import Btn from "../Btn/Btn.astro";
+import SelectCountry from "../SelectCountry/SelectCountry.astro";
+import CustomCheckbox from "../CustomCheckbox/CustomCheckbox.astro";
+---
+
+<form class="feedback-form" action="#" method="POST">
+  <div class="feedback-form__wrapper">
+    <CustomInput className="feedback-form__field-lg" typeInput="text" idInput="name" nameInput="name" textLabel="Имя" />
+    <div class="feedback-form__inner">
+      <SelectCountry />
+      <CustomInput className="custom-input--country" typeInput="tel" idInput="phone" nameInput="phone" textLabel="Телефон" />
+    </div>
+    <CustomInput typeInput="email" idInput="email" nameInput="email" textLabel="Электронная почта" />
+  </div>
+  <Btn className="feedback-form__btn" type="submit">Стать экспертом</Btn>
+  <p class="feedback-form__text">
+    Нажимая на кнопку, я соглашаюсь на <a class="feedback-form__link" href="#">обработку персональных данных</a> 
+    и с <a class="feedback-form__link" href="#">правилами пользования Платформой</a>
+  </p>
+  <CustomCheckbox idCheckbox="agree" nameCheckbox="form-agree" textLabel="Я согласен получать рекламу и звонки"/>
+</form>

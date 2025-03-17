@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon/components"
+import Container from "../Container/Container.astro"
+---
+
+<header class="header">
+  <Container>
+    <div class="header__wrapper">
+      <a class="header__main-link" href="https://skillbox.ru/" aria-label="Ссылка на главную страницу">
+        <Icon class="header__main-link-icon" name="icon-main-logo" />
+      </a>
+
+      <div class="header__action">
+        <a class="header__courses" href="https://skillbox.ru/courses/">Все курсы</a>
+        <a class="header__link" href="https://skillbox.ru/">
+          <span class="header__link-text">Главная Skillbox</span>
+          <Icon class="header__link-icon" name="icon-arrow-top-right" />
+        </a>
+      </div>
+    </div>
+  </Container>
+</header>

@@ -1,0 +1,70 @@
+.custom-input {
+  display: flex;
+  align-items: center;
+  position: relative;
+  $root: &;
+
+  &--country {
+    @media (max-width: 1208px) {
+      flex-grow: 1;
+    }
+
+    #{$root}__field {
+      max-width: 181px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+
+      @media (max-width: 1208px) {
+        max-width: unset;
+      }
+    }
+  }
+
+  &__field {
+    padding: 24px 17px 10px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    background-color: $color-cultured;
+    border: 1px solid $color-gainsboro;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color $transition-300;
+
+    &--focus {
+      border-color: $color-pink-swan;
+
+      & + #{$root}__label {
+        transform: translate(-14%, -44%) scale(0.7);
+      }
+    }
+
+    @include focus {
+      background-color: $color-default-white;
+
+      & + #{$root}__label {
+        transform: translate(-14%, -44%) scale(0.7);
+      }
+    }
+
+    @include hover-focus {
+      border-color: $color-pink-swan;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    left: 18px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: $color-dim-gray;
+    pointer-events: none;
+    transition: transform $transition-300;
+  }
+
+  &__list {
+    position: absolute;
+  }
+}

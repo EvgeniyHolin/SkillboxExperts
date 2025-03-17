@@ -1,0 +1,118 @@
+@mixin vp-1439 {
+  @media (max-width: ($vp-1440 - 1px)) {
+    @content;
+  }
+}
+
+@mixin vp-1279 {
+  @media (max-width: ($vp-1280 - 1px)) {
+    @content;
+  }
+}
+
+@mixin vp-1023 {
+  @media (max-width: ($vp-1024 - 1px)) {
+    @content;
+  }
+}
+
+@mixin vp-767 {
+  @media (max-width: ($vp-768 - 1px)) {
+    @content;
+  }
+}
+
+@mixin vp-389 {
+  @media (max-width: ($vp-390 - 1px)) {
+    @content;
+  }
+}
+
+@mixin vp-319 {
+  @media (max-width: ($vp-320 - 1px)) {
+    @content;
+  }
+}
+
+// ------
+
+@mixin hover-focus {
+  &:focus-visible {
+    @content;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin focus {
+  &:focus-visible {
+    @content;
+  }
+}
+
+@mixin active {
+  &:active {
+    @content;
+  }
+}
+
+@mixin disabled {
+  &:disabled,
+  &[inert],
+  &.is-disabled {
+    @content;
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  white-space: nowrap;
+  border: 0;
+  clip-path: inset(100%);
+}
+
+// --------
+@mixin renderCircleList($itemCount, $circleSize, $itemSize) {
+  position: absolute;
+  width: $circleSize;
+  aspect-ratio: 1 / 1;
+  transform-origin: center;
+  border-radius: 50%;
+
+  li {
+    margin: -($itemSize / 2);
+    width: $itemSize;
+    height: $itemSize;
+
+    $angle: (360 / $itemCount);
+    $rotation: 0;
+
+    @for $i from 1 through $itemCount {
+      &:nth-child(#{$i}) {
+        transform: rotate($rotation * 1deg)
+          translate($circleSize / 2)
+          rotate($rotation * -1deg);
+      }
+
+      $rotation: $rotation + $angle;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+---
+interface Props {
+  className?: string;
+  classInput?: string;
+  typeInput: any;
+  idInput: string;
+  nameInput: string;
+  classLabel?: string;
+  textLabel?: string;
+};
+
+const { className, classInput, typeInput, idInput, nameInput, classLabel, textLabel } = Astro.props;
+---
+
+<div class:list={["custom-input", className]}>
+  <slot />
+  <input class:list={["custom-input__field", classInput]} type={typeInput} id={idInput} name={nameInput}>
+  <label class:list={["custom-input__label", classLabel]} for={idInput}>{textLabel}</label>
+</div>

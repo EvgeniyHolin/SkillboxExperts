@@ -1,0 +1,60 @@
+---
+import CustomImage from "../CustomImage/CustomImage.astro";
+
+interface Props {
+    cardImagePath: string;
+    cardImagePath2x: string;
+    label: string;
+    link: string;
+    linkText: string;
+    title: string;
+    expertImagePath: string;
+    expertImagePath2x: string;
+    expertName: string;
+}
+
+const {
+    cardImagePath,
+    cardImagePath2x,
+    label,
+    link,
+    linkText,
+    title,
+    expertImagePath,
+    expertImagePath2x,
+    expertName,
+} = Astro.props;
+---
+
+<div class="media-card">
+    <div class="media-card__top">
+        <CustomImage
+            image={{
+                desktop: cardImagePath,
+                desktop2x: cardImagePath2x,
+            }}
+            altText="Изображение для карточки медиа"
+            className="media-card__img"
+        />
+        <span class="media-card__label">{label}</span>
+    </div>
+    <div class="media-card__bottom">
+        <div class="media-card__main">
+            <a class="media-card__link" href={link} target="_blank"
+                >{linkText}</a
+            >
+            <h3 class="media-card__title">{title}</h3>
+        </div>
+        <div class="media-card__expert">
+            <CustomImage
+                image={{
+                    desktop: expertImagePath,
+                    desktop2x: expertImagePath2x
+                }}
+                altText="Фото эксперта"
+                className="media-card__expert-img"
+            />
+            <span class="media-card__expert-name">{expertName}</span>
+        </div>
+    </div>
+</div>

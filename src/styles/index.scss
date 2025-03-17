@@ -1,0 +1,46 @@
+// Vendors
+// ---------------------------------------
+@import './vendors/normalize';
+@import 'swiper/swiper-bundle.css';
+@import './vendors/swiper';
+@import './vendors/data-accordion';
+@import './vendors/data-tabs';
+
+// Globals
+// ---------------------------------------
+@import './global/variables';
+@import './global/mixins';
+@import './global/fonts';
+@import './global/global';
+@import './global/utils';
+
+// Components
+// ---------------------------------------
+@import '../components/Container/Container';
+@import '../components/Btn/Btn';
+@import '../components/Header/Header';
+@import '../components/Footer/Footer';
+@import '../components/AdvantageCard/AdvantageCard';
+@import '../components/InfoCard/InfoCard';
+@import '../components/ExpertLevelsCard/ExpertLevelsCard';
+@import '../components/ExpertCard/ExpertCard';
+@import '../components/MediaCard/MediaCard';
+@import '../components/Direction/Direction';
+@import '../components/FeedbackForm/FeedbackForm';
+@import '../components/CustomInput/CustomInput';
+@import '../components/CustomCheckbox/CustomCheckbox';
+@import '../components/SelectCountry/SelectCountry';
+@import '../components/OpportunitiesCard/OpportunitiesCard';
+
+// Blocks
+// ---------------------------------------
+@import '../views/Hero/Hero';
+@import '../views/Summary/Summary';
+@import '../views/Experts/Experts';
+@import '../views/Community/Community';
+@import '../views/Media/Media';
+@import '../views/Opportunities/Opportunities';
+@import '../views/ExpertLevels/ExpertLevels';
+@import '../views/Advantages/Advantages';
+@import '../views/Directions/Directions';
+@import '../views/BecomeExpert/BecomeExpert';
